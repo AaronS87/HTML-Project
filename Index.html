@@ -8,108 +8,92 @@
     
 </head>
     
-        <body class="bg-light"> <! –– Provies color to the body ––>
+        <body class="bg-light"> <!-- Provides color to the body -->
     
-    <! –– Header with logo ––>
-    <! –– InLine CSS ––>
+    <!-- Header with logo -->
+    <!-- Inline CSS -->
 
-            <div class="container"> <! –– Includes logo and text related. Padding ––>
-                <div class="py-5 text-center"> <! –– Container padding 5 units ––>
-                <img class="mb-4 d-block mx-auto" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" with="72" height="72"> <! –– Logo ––>
-                <h2>Checkout form</h2>
-                <p class="lead">Below is an example form build entirely with boostrap</p>
-                </div>
-            </div>
-
-            <style>
-                h2{color: blue;}
-            </style>
-
-<div class="container">
-    <div id="bodyCol" class="row justify-content-center" style="border:1px solid black">
-        <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
-            <h2>Billing address</h2>
-
-            <label for="fname">* Full name</label><br>
-            <input type="text" id="fname" name="fname" placeholder="Bladimiro Salazar Barrios" required><br>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label for="country" class="form-label">* Country</label><br>
-                    <input type="text" id="country" name="country" placeholder="Spain" required><br>
-                </div>
-                <div class="col-sm-6">
-                    <label for="province" class="form-label">* Province</label><br>
-                    <input type="text" id="province" name="province" placeholder="Andalucía" required><br>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <label for="city" class="form-label">* City</label><br>
-                    <input type="text" id="city" name="city" placeholder="Sevilla" required><br>
-                </div>
-                <div class="col-sm-6">
-                    <label for="zipcode" class="form-label">* Zip code</label><br>
-                    <input type="text" id="zipcode" name="zipcode" placeholder="35014" required><br>
-                </div>
-            </div>
-
-            <label for="fname">* Address street</label><br>
-            <input type="text" id="astreet" name="astreet" placeholder="25 Long Road" required><br>
-            <label for="anumber">* Address number</label><br>
-            <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
-           
-            <label for="email">* email</label><br>
-            <input type="text" id="email" name="email" placeholder="xxxxxxxxx@gmail.com" required><br>
-            <label for="tnumber">* Telephone number</label><br>
-            <input type="text" id="tnumber" name="fname" placeholder="xxxxxxxxx" required><br>
-            <label for="companyname">Company name</label><br>
-            <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
-
-
+    <div class="container"> <!-- Includes logo and text related. Padding -->
+        <div class="py-5 text-center"> <!-- Container padding 5 units -->
+            <img class="mb-4 d-block mx-auto" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" with="72" height="72"> <!-- Logo -->
+            <h2>Checkout form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap</p>
         </div>
-
-        <div class="col-sm-4" style="border:1px solid red">
-            <h2>Order summary</h2>
-            Summary of your order
-        </div>
-        
     </div>
-</div>
 
-<div class="container">
-<button type="button" class="btn btn-primary">Submit</button>
-</div> 
+    <style>
+        h2 { color: blue; }
+    </style>
 
-<script>
-    $(document).ready(function() {
-        // Select all input elements within the bLeftCol div and add the form-control class
-        $('#bLeftCol input').addClass('form-control');
-    });
+    <div class="container">
+        <div id="bodyCol" class="row justify-content-center" style="border:1px solid black">
+            <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
+                <h2>Billing address</h2>
+
+                <label for="fname">* Full name</label><br>
+                <input type="text" id="fname" name="fname" placeholder="Bladimiro Salazar Barrios" required><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="country" class="form-label">* Country</label><br>
+                        <select id="countrySelect" class="form-control">
+                            <option value="">Select...</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Germany">Germany</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="province" class="form-label">* Province</label><br>
+                        <input type="text" id="province" name="province" placeholder="Andalucía" required><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="city" class="form-label">* City</label><br>
+                        <input type="text" id="city" name="city" placeholder="Sevilla" required><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="zipcode" class="form-label">* Zip code</label><br>
+                        <input type="text" id="zipcode" name="zipcode" placeholder="35014" required><br>
+                    </div>
+                </div>
+
+                <label for="fname">* Address street</label><br>
+                <input type="text" id="astreet" name="astreet" placeholder="25 Long Road" required><br>
+                <label for="anumber">* Address number</label><br>
+                <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
+            
+                <label for="email">* Email</label><br>
+                <input type="text" id="email" name="email" placeholder="xxxxxxxxx@gmail.com" required><br>
+                <label for="tnumber">* Telephone number</label><br>
+                <input type="text" id="tnumber" name="tnumber" placeholder="xxxxxxxxx" required><br>
+                <label for="companyname">Company name</label><br>
+                <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
+
+            </div>
+
+            <div class="col-sm-4" style="border:1px solid red">
+                <h2>Order summary</h2>
+                Summary of your order
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <button type="button" class="btn btn-primary">Submit</button>
+    </div> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#bLeftCol input').addClass('form-control');
+        });
     </script>
-
-<! –– Country, Zip Code, Full name, email, telephone number, company name (if invoice is required), Address street. Address number, city, province  ––>
-<! –– Payment methods: Cretid/Debit Card: Card number, Card name, Expiration date, Security code (CV2) with "?" ––>
-<! –– Button: I confirm my order ––>
-<! –– By confirming this order, you agree to "the Terms and Conditions" and "Privacy Policy". hyperlink ––>
-<! –– Footer for the whole site ––>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   <! –– Import jquery for adding form-control ––>
-        
-        <script>  
-            $(document).ready(function() {
-                $('#bLeftCol input').addClass('form-control'); 
-            });
-        </script> <! –– Adding the form-control to #bLeftCol input ––>
-        <script src="https://unpkg.com/vue"></script>
-        <script>
-            new Vue({ el: '#app' });
-        </script>
-
-
-
-        </html>
-    
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({ el: '#app' });
+    </script>
 </body>
 </html>
