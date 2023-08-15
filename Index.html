@@ -25,6 +25,7 @@
         h2 { color: blue; }
     </style>
 
+
     <div class="container">
         <div id="bodyCol" class="row justify-content-center" style="border:1px solid black">
             <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
@@ -94,23 +95,41 @@
 
             </div>
 
-            <div class="col-sm-4" style="border:1px solid red">
+            <div id="bRightCol" class="col-sm-4" style="border:1px solid red">
                 <h2>Order summary</h2>
+
+                <hr class="my-3">
             
-                <div class="container"> <!-- Includes logo and text related. Padding -->
-            
-                    <div class="row">
-                        <div class="col-sm-4 text-center"> <!-- Adjusted column width and centered text -->
-                            <img class="mb-4 d-block mx-auto" style="border:1px solid black" src="https://github.com/AaronS87/HTML-Project/blob/master/amd-1310766_1280.jpg?raw=true" alt="Logo" width="100" height="100"> <!-- Logo -->
-                        </div>
-                        <div class="col-sm-4 text-center"> <!-- Adjusted column width and centered text -->
-                            <h6 class="mb-4" style="border:1px solid black">CPU</h6>
-                        </div>
-                        <div class="col-sm-4 text-center"> <!-- Adjusted column width and centered text -->
-                            <h6 class="mb-4" style="border:1px solid black">Price</h6>
-                        </div>
+
+     
+                <div id="productCpu" class="row flex-column flex-md-row">
+                    <div id="imageCpu" class="col-sm-4">
+                        <img style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/amd-1310766_1280.jpg?raw=true" alt="Logo">
+                    </div>
+                    <div id="productName" class="col-sm-4">
+                        <h6 style="border:1px solid black; max-width: 80px; height: auto;">CPU</h6>
+                        <p>AMD Ryzen 9 7950X3D</p>
+                    </div>
+                    <div id="ProductPrice" class="col-sm-4">
+                        <h6 style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
+                        <p><span class="number-value">792,33 </span> euros</p>
                     </div>
                 </div>
+                    <hr class="my-3">
+                    
+                    <div id="productRam" class="row">
+                        <div class="col-sm-4 text-center">
+                            <img class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/memory-4704236_1280.jpg?raw=true" alt="Logo">
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Ram</h6>
+                            <p>Kingston FURY Renegade RGB DDR4 3600 MHz 32GB CL18</p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
+                            <p><span class="number-value">132,33 </span> euros</p>
+                        </div>
+                    </div>
             </div>
     </div>
 
@@ -287,6 +306,7 @@
 </body>
 </html>
 <!-- Faltan líneas en el billing address -->
+<!-- Añadir los euros con JavaScript -->
 <!-- Faltan líneas en el order summary address -->
 <!-- Asterisco rojo cambiar de posición y a todos los necesarios -->
 <!-- Añadir código descuento -->
