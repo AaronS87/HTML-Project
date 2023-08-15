@@ -30,8 +30,20 @@
             <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
                 <h2>Billing address</h2>
 
-                <label for="fname">* Full name</label><br>
-                <input type="text" id="fname" name="fname" placeholder="Bladimiro Salazar Barrios" required><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label id="requiredFn" for="fname">* First name</label><br>
+                        <input type="text" id="fname" name="fname" placeholder="Bladimiro Francisco" required><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <label id="requiredLn" for="lname">* Last name</label><br>
+                        <input type="text" id="lname" name="lname" placeholder="Salazar Barrios" required><br>
+                    </div>
+
+                </div>
+
+
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="country" class="form-label">* Country</label>
@@ -80,17 +92,6 @@
                 <label for="companyname">Company name</label><br>
                 <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
 
-                <div class="col-sm-4">
-                    <label for="country" class="form-label">* Country</label>
-                    <select id="country" class="form-control">
-                    <option>Select...</option>
-                    </select>
-                    <br>
-                    <label for="region" class="form-label">* Region</label>
-                    <select id="region" class="form-control">
-                    <option>Select...</option>
-                    </select>
-                </div>
             </div>
 
             <div class="col-sm-4" style="border:1px solid red">
@@ -114,12 +115,17 @@
         });
     </script>
 
-
-    <script src="https://unpkg.com/vue"></script>
     <script>
-        new Vue({ el: '#app' });
-    </script>
+        $(document).ready(function() {
+            // Create a new asterisk element
+            var asterisk = document.createElement('span');
+            asterisk.innerText = '*'; // Asterisk symbol
+            asterisk.style.color = 'red'; // Red color style
 
+            // Append the asterisk to the '#required' element
+            $('#requiredFn, #requiredLn').append(asterisk);
+        });
+    </script>
 
 
     <script>
@@ -236,7 +242,7 @@
     if (this.value === "Югоизточен район") {
         addToProvince(SoutheastRegion);
     }
-    if (this.value === "Южен централен район") {
+    if (this.value === "Южен-централен район") {
         addToProvince(SouthCentralRegion);
     }
     if (this.value === "Югозападен район") {
