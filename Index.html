@@ -8,11 +8,10 @@
     
 </head>
     
-        <body class="bg-light"> <!-- Provides color to the body -->
-    
-    <!-- Header with logo -->
-    <!-- Inline CSS -->
+<body class="bg-light"> <!-- Provides color to the body -->
 
+<!-- Logo and main title -->
+    
     <div class="container"> <!-- Includes logo and text related. Padding -->
         <div class="py-5 text-center"> <!-- Container padding 5 units -->
             <img class="mb-4 d-block mx-auto" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" with="72" height="72"> <!-- Logo -->
@@ -21,16 +20,33 @@
         </div>
     </div>
 
+<!-- Inline CSS -->
+
     <style>
         h2 { color: blue; }
     </style>
 
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+
+<!-- Whole container -->
 
     <div class="container">
         <div id="bodyCol" class="row justify-content-center" style="border:1px solid black">
-            <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
-                <h2>Billing address</h2>
 
+<!-- Left container -->
+            <!-- Left column container -->
+
+            <div id="bLeftCol" class="col-sm-8" style="border:1px solid green">
+                
+
+                <h2>Billing address</h2> <!-- Title left container -->
+
+                <!-- First and last name -->
 
                 <div class="row">
                     <div class="col-sm-6">
@@ -41,10 +57,10 @@
                         <label id="requiredLn" for="lname">* Last name</label><br>
                         <input type="text" id="lname" name="lname" placeholder="Salazar Barrios" required><br>
                     </div>
-
                 </div>
 
-
+                <!-- Country, region, and province -->
+                
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="country" class="form-label">* Country</label>
@@ -64,11 +80,11 @@
                         <label for="province" class="form-label">* Province</label><br>
                         <select id="province" class="form-control">
                             <option value="">Select...</option>
-
                         </select>
                     </div>
-
                 </div>
+
+                <!-- City and zipcode -->
 
                 <div class="row">
                     <div class="col-sm-6">
@@ -81,71 +97,97 @@
                     </div>
                 </div>
 
+                <!-- Address street -->
+
                 <label for="fname">* Address street</label><br>
                 <input type="text" id="astreet" name="astreet" placeholder="25 Long Road" required><br>
+
+                <!-- Address number -->
+
                 <label for="anumber">* Address number</label><br>
                 <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
+
+                <!-- Email -->
             
                 <label for="email">* Email</label><br>
                 <input type="text" id="email" name="email" placeholder="xxxxxxxxx@gmail.com" required><br>
+
+                <!-- Telephone number -->
+
                 <label for="tnumber">* Telephone number</label><br>
                 <input type="text" id="tnumber" name="tnumber" placeholder="xxxxxxxxx" required><br>
+
+                <!-- Company name -->
+
                 <label for="companyname">Company name</label><br>
                 <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
 
             </div>
 
+<!-- right container -->
+
+            <!-- Right column container -->
             <div id="bRightCol" class="col-sm-4" style="border:1px solid red">
-                <h2>Order summary</h2>
+
+                <h2>Order summary</h2> <!-- Title left container -->
 
                 <hr class="my-3">
-            
 
+                <!-- Product 1 -->
      
-                <div id="productCpu" class="row flex-column flex-md-row">
-                    <div id="imageCpu" class="col-sm-4">
+                <div id="productCpu" class="container flex-sm-column flex-lg-row">
+                    <div id="imageCpu" class="item col-sm-4">
                         <img style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/amd-1310766_1280.jpg?raw=true" alt="Logo">
                     </div>
-                    <div id="productName" class="col-sm-4">
-                        <h6 style="border:1px solid black; max-width: 80px; height: auto;">CPU</h6>
+                    <div id="productName" class="item col-sm-4 px-2">
+                        <h6 style="border:1px solid black">CPU</h6>
                         <p>AMD Ryzen 9 7950X3D</p>
                     </div>
-                    <div id="ProductPrice" class="col-sm-4">
-                        <h6 style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
-                        <p><span class="number-value">792,33 </span> euros</p>
+                    <div id="ProductPrice" class="item col-sm-4 px-2">
+                        <h6 style="border:1px solid black">Price</h6>
+                        <p><span class="number-value">792,33 </span> €</p>
                     </div>
                 </div>
                     <hr class="my-3">
+
+                <!-- Product 1 -->
                     
-                    <div id="productRam" class="row">
-                        <div class="col-sm-4 text-center">
-                            <img class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/memory-4704236_1280.jpg?raw=true" alt="Logo">
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Ram</h6>
-                            <p>Kingston FURY Renegade RGB DDR4 3600 MHz 32GB CL18</p>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
-                            <p><span class="number-value">132,33 </span> euros</p>
-                        </div>
+                <div id="productRam" class="row">
+                    <div class="col-sm-4 text-center">
+                        <img class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/memory-4704236_1280.jpg?raw=true" alt="Logo">
                     </div>
+                    <div class="col-sm-4 text-center">
+                        <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Ram</h6>
+                        <p>Kingston FURY Renegade RGB DDR4 3600 MHz 32GB CL18</p>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
+                        <p><span class="number-value">132,33 </span> euros</p>
+                    </div>
+                </div>
             </div>
+        </div>
+
+<!-- Button container -->
+
+        <div class="container">
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div>
     </div>
 
-    <div class="container">
-        <button type="button" class="btn btn-primary">Submit</button>
-    </div> 
+<!-- JavaScript -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- JavaScript form for left column -->
     <script>
         $(document).ready(function() {
             $('#bLeftCol input').addClass('form-control');
         });
     </script>
 
+    <!-- JavaScript for the asterix -->
     <script>
         $(document).ready(function() {
             // Create a new asterisk element
@@ -158,7 +200,7 @@
         });
     </script>
 
-
+    <!-- JavaScript for the country, region, and province -->
     <script>
         let countries = ["Bulgaria", "Spain"];
 
@@ -211,78 +253,77 @@
         }
 
         region.onchange = function() {
-    province.innerHTML = "<option></option>";
-
-    if (this.value === "Andalucía") {
-        addToProvince(Andalucia);
-    }
-    if (this.value === "Aragón") {
-        addToProvince(Aragon);
-    }
-    if (this.value === "Asturias") {
-        addToProvince(Asturias);
-    }
-    if (this.value === "Cantabria") {
-        addToProvince(Cantabria);
-    }
-    if (this.value === "Castilla-La Mancha") {
-        addToProvince(CastillaLaMancha);
-    }
-    if (this.value === "Castilla y León") {
-        addToProvince(CastillaYLeon);
-    }
-    if (this.value === "Cataluña") {
-        addToProvince(Cataluña);
-    }
-    if (this.value === "Comunidad de Madrid") {
-        addToProvince(ComunidadDeMadrid);
-    }
-    if (this.value === "Comunidad Valenciana") {
-        addToProvince(ComunidadValenciana);
-    }
-    if (this.value === "Extremadura") {
-        addToProvince(Extremadura);
-    }
-    if (this.value === "Galicia") {
-        addToProvince(Galicia);
-    }
-    if (this.value === "Islas Baleares") {
-        addToProvince(Baleares);
-    }
-    if (this.value === "Islas Canarias") {
-        addToProvince(IslasCanarias);
-    }
-    if (this.value === "La Rioja") {
-        addToProvince(LaRioja);
-    }
-    if (this.value === "Navarra") {
-        addToProvince(Navarra);
-    }
-    if (this.value === "País Vasco") {
-        addToProvince(PaisVasco);
-    }
-    if (this.value === "Región de Murcia") {
-        addToProvince(RegionDeMurcia);
-    }
-    if (this.value === "Североизточен район") {
-        addToProvince(NortheastRegion);
-    }
-    if (this.value === "Северозападен район") {
-        addToProvince(NorthwestRegion);
-    }
-    if (this.value === "Югоизточен район") {
-        addToProvince(SoutheastRegion);
-    }
-    if (this.value === "Южен-централен район") {
-        addToProvince(SouthCentralRegion);
-    }
-    if (this.value === "Югозападен район") {
-        addToProvince(SouthwestRegion);
-    }
-    if (this.value === "Северен-централен район") {
-        addToProvince(NorthCentralRegion);
-    }
-}
+            province.innerHTML = "<option></option>";
+            if (this.value === "Andalucía") {
+                addToProvince(Andalucia);
+            }
+            if (this.value === "Aragón") {
+                addToProvince(Aragon);
+            }
+            if (this.value === "Asturias") {
+                addToProvince(Asturias);
+            }
+            if (this.value === "Cantabria") {
+                addToProvince(Cantabria);
+            }
+            if (this.value === "Castilla-La Mancha") {
+                addToProvince(CastillaLaMancha);
+            }
+            if (this.value === "Castilla y León") {
+                addToProvince(CastillaYLeon);
+            }
+            if (this.value === "Cataluña") {
+                addToProvince(Cataluña);
+            }
+            if (this.value === "Comunidad de Madrid") {
+                addToProvince(ComunidadDeMadrid);
+            }
+            if (this.value === "Comunidad Valenciana") {
+                addToProvince(ComunidadValenciana);
+            }
+            if (this.value === "Extremadura") {
+                addToProvince(Extremadura);
+            }
+            if (this.value === "Galicia") {
+                addToProvince(Galicia);
+            }
+            if (this.value === "Islas Baleares") {
+                addToProvince(Baleares);
+            }
+            if (this.value === "Islas Canarias") {
+                addToProvince(IslasCanarias);
+            }
+            if (this.value === "La Rioja") {
+                addToProvince(LaRioja);
+            }
+            if (this.value === "Navarra") {
+                addToProvince(Navarra);
+            }
+            if (this.value === "País Vasco") {
+                addToProvince(PaisVasco);
+            }
+            if (this.value === "Región de Murcia") {
+                addToProvince(RegionDeMurcia);
+            }
+            if (this.value === "Североизточен район") {
+                addToProvince(NortheastRegion);
+            }
+            if (this.value === "Северозападен район") {
+                addToProvince(NorthwestRegion);
+            }
+            if (this.value === "Югоизточен район") {
+                addToProvince(SoutheastRegion);
+            }
+            if (this.value === "Южен-централен район") {
+                addToProvince(SouthCentralRegion);
+            }
+            if (this.value === "Югозападен район") {
+                addToProvince(SouthwestRegion);
+            }
+            if (this.value === "Северен-централен район") {
+                addToProvince(NorthCentralRegion);
+            }
+        }
 
         function addToRegion(arr){
             arr.forEach(function (item){
