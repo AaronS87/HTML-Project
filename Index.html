@@ -34,15 +34,15 @@
                 <input type="text" id="fname" name="fname" placeholder="Bladimiro Salazar Barrios" required><br>
                 <div class="row">
                     <div class="col-sm-4">
-                        <label for="slct1" class="form-label">* Country</label>
-                        <select id="slct1" class="form-control">
+                        <label for="country" class="form-label">* Country</label>
+                        <select id="country" class="form-control">
                             <option>Select...</option>
                         </select>
                     </div>
                     
                     <div class="col-sm-4">
-                        <label for="slct2" class="form-label">* Region</label>
-                        <select id="slct2" class="form-control">
+                        <label for="region" class="form-label">* Region</label>
+                        <select id="region" class="form-control">
                             <option>Select...</option>
                         </select>
                     </div>
@@ -51,8 +51,7 @@
                         <label for="province" class="form-label">* Province</label><br>
                         <select id="province" class="form-control">
                             <option value="">Select...</option>
-                            <option id="es01" value="acoruna">A Coruña</option>
-                            <option id="es16" value="alava">Álava</option>
+
                         </select>
                     </div>
 
@@ -82,13 +81,13 @@
                 <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
 
                 <div class="col-sm-4">
-                    <label for="slct1" class="form-label">* Country</label>
-                    <select id="slct1" class="form-control">
+                    <label for="country" class="form-label">* Country</label>
+                    <select id="country" class="form-control">
                     <option>Select...</option>
                     </select>
                     <br>
-                    <label for="slct2" class="form-label">* Region</label>
-                    <select id="slct2" class="form-control">
+                    <label for="region" class="form-label">* Region</label>
+                    <select id="region" class="form-control">
                     <option>Select...</option>
                     </select>
                 </div>
@@ -124,36 +123,145 @@
 
 
     <script>
-        let countries = ["Germany", "Spain"];
-        let Germany = ["Baden-Württemberg", "Bavaria", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hesse", "Lower Saxony", "Mecklenburg-Vorpommern", "North Rhine-Westphalia", "Rhineland-Palatinate", "Saarland", "Saxony", "Saxony-Anhalt", "Schleswig-Holstein", "Thuringia"];
-        let Spain = ["Andalusia", "Aragon", "Asturias", "Balearic Islands", "Basque Country", "Canary Islands", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Catalonia", "Extremadura", "Galicia", "La Rioja", "Madrid", "Murcia", "Navarre", "Valencia"]
+        let countries = ["Bulgaria", "Spain"];
 
-        let slct1 = document.getElementById("slct1");
-        let slct2 = document.getElementById("slct2");
+        let Spain = ["Andalucía", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Comunidad de Madrid", "Comunidad Valenciana", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Navarra", "País Vasco", "Región de Murcia"];
+
+        let Andalucia = ["Almería", "Cádiz", "Córdoba", "Granada", "Huelva", "Jaén", "Málaga", "Sevilla"];
+        let Aragon = ["Huesca", "Teruel", "Zaragoza"];
+        let Asturias = ["Asturias"];
+        let Baleares = ["Islas Baleares"];
+        let Canarias = ["Las Palmas", "Santa Cruz de Tenerife"];
+        let Cantabria = ["Cantabria"];
+        let CastillaLaMancha = ["Albacete", "Ciudad Real", "Cuenca", "Guadalajara", "Toledo"];
+        let CastillaYLeon = ["Ávila", "Burgos", "León", "Palencia", "Salamanca", "Segovia", "Soria", "Valladolid", "Zamora"];
+        let Catalunya = ["Barcelona", "Girona", "Lleida", "Tarragona"];
+        let Extremadura = ["Badajoz", "Cáceres"];
+        let Galicia = ["A Coruña", "Lugo", "Ourense", "Pontevedra"];
+        let Madrid = ["Comunidad de Madrid"];
+        let Murcia = ["Región de Murcia"];
+        let Navarra = ["Navarra"];
+        let Valencia = ["Alicante", "Castellón", "Valencia"];
+
+        let Bulgaria = ["Северозападен район", "Северен-централен район", "Североизточен район", "Югоизточен район", "Южен-централен район", "Югозападен район"];
+
+        let NortheastRegion = ["Добрич", "Шумен", "Търговище", "Варна"];
+        let NorthCentralRegion = ["Габрово", "Ловеч", "Плевен", "Велико Търново"];
+        let NorthwestRegion = ["Монтана", "Плевен", "Видин", "Враца"];
+        let SouthCentralRegion = ["Хасково", "Кърджали", "Пазарджик", "Пловдив", "Смолян"];
+        let SoutheastRegion = ["Бургас", "Сливен", "Стара Загора", "Ямбол"];
+        let SouthwestRegion = ["Благоевград", "Кюстендил", "Перник", "София (столица)", "София"];
+
+        let country = document.getElementById("country");
+        let region = document.getElementById("region");
+        let province = document.getElementById("province");
 
         countries.forEach(function addcountries(item){
             let option = document.createElement("option");
             option.text = item;
             option.value = item;
-            slct1.appendChild(option);
+            country.appendChild(option);
         });
 
-        slct1.onchange = function(){
-            slct2.innerHTML = "<option></option>";
-            if(this.value == "Germany"){
-                addToSlct2(Germany);
+        country.onchange = function(){
+            region.innerHTML = "<option></option>";
+            if(this.value == "Bulgaria"){
+                addToRegion(Bulgaria);
             }
             if(this.value == "Spain"){
-                addToSlct2(Spain);
+                addToRegion(Spain);
             }
         }
 
-        function addToSlct2(arr){
+        region.onchange = function() {
+    province.innerHTML = "<option></option>";
+
+    if (this.value === "Andalucía") {
+        addToProvince(Andalucia);
+    }
+    if (this.value === "Aragón") {
+        addToProvince(Aragon);
+    }
+    if (this.value === "Asturias") {
+        addToProvince(Asturias);
+    }
+    if (this.value === "Cantabria") {
+        addToProvince(Cantabria);
+    }
+    if (this.value === "Castilla-La Mancha") {
+        addToProvince(CastillaLaMancha);
+    }
+    if (this.value === "Castilla y León") {
+        addToProvince(CastillaYLeon);
+    }
+    if (this.value === "Cataluña") {
+        addToProvince(Cataluña);
+    }
+    if (this.value === "Comunidad de Madrid") {
+        addToProvince(ComunidadDeMadrid);
+    }
+    if (this.value === "Comunidad Valenciana") {
+        addToProvince(ComunidadValenciana);
+    }
+    if (this.value === "Extremadura") {
+        addToProvince(Extremadura);
+    }
+    if (this.value === "Galicia") {
+        addToProvince(Galicia);
+    }
+    if (this.value === "Islas Baleares") {
+        addToProvince(Baleares);
+    }
+    if (this.value === "Islas Canarias") {
+        addToProvince(IslasCanarias);
+    }
+    if (this.value === "La Rioja") {
+        addToProvince(LaRioja);
+    }
+    if (this.value === "Navarra") {
+        addToProvince(Navarra);
+    }
+    if (this.value === "País Vasco") {
+        addToProvince(PaisVasco);
+    }
+    if (this.value === "Región de Murcia") {
+        addToProvince(RegionDeMurcia);
+    }
+    if (this.value === "Североизточен район") {
+        addToProvince(NortheastRegion);
+    }
+    if (this.value === "Северозападен район") {
+        addToProvince(NorthwestRegion);
+    }
+    if (this.value === "Югоизточен район") {
+        addToProvince(SoutheastRegion);
+    }
+    if (this.value === "Южен централен район") {
+        addToProvince(SouthCentralRegion);
+    }
+    if (this.value === "Югозападен район") {
+        addToProvince(SouthwestRegion);
+    }
+    if (this.value === "Северен-централен район") {
+        addToProvince(NorthCentralRegion);
+    }
+}
+
+        function addToRegion(arr){
             arr.forEach(function (item){
                 let option = document.createElement("option");
                 option.text = item;
                 option.value = item;
-                slct2.appendChild(option);
+                region.appendChild(option);
+            })
+        }
+
+        function addToProvince(arr){
+            arr.forEach(function (item){
+                let option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                province.appendChild(option);
             })
         }
 
