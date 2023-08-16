@@ -30,6 +30,8 @@
 
     </style>
 
+    <!-- h6 properties -->
+
     <style>
         h6 { border: 1px solid black; 
     }
@@ -43,17 +45,32 @@
             flex-wrap: wrap;
             max-width: 100%;
         }
-
     </style>
-        <style>
+
+    <style>
         .item {
             flex: 2;
         }
     </style>
 
+    <style>
+        #required::before {
+        content: "* ";
+        color: red; /* You can adjust the color as needed */
+        }
+    </style>
 
-    
-
+    <style>
+        #phone {
+        outline: 0;
+        }
+        #phone:valid{
+        border-color: green;
+        }
+        #phone:focus:invalid{
+        border-color: red;
+        }
+    </style>
 
 <!-- Whole container -->
 
@@ -74,11 +91,11 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <label id="requiredFn" for="fname">* First name</label><br>
+                        <label id="required" for="fname">First name</label><br>
                         <input type="text" id="fname" name="fname" placeholder="Bladimiro Francisco" required><br>
                     </div>
                     <div class="col-sm-6">
-                        <label id="requiredLn" for="lname">* Last name</label><br>
+                        <label id="required" for="lname">Last name</label><br>
                         <input type="text" id="lname" name="lname" placeholder="Salazar Barrios" required><br>
                     </div>
                 </div>
@@ -87,21 +104,21 @@
                 
                 <div class="row">
                     <div class="col-sm-4">
-                        <label for="country" class="form-label">* Country</label>
+                        <label id="required" for="country" class="form-label">Country</label>
                         <select id="country" class="form-control">
                             <option>Select...</option>
                         </select>
                     </div>
                     
                     <div class="col-sm-4">
-                        <label for="region" class="form-label">* Region</label>
+                        <label id="required" for="region" class="form-label">Region</label>
                         <select id="region" class="form-control">
                             <option>Select...</option>
                         </select>
                     </div>
 
                     <div class="col-sm-4">
-                        <label for="province" class="form-label">* Province</label><br>
+                        <label id="required" for="province" class="form-label">Province</label><br>
                         <select id="province" class="form-control">
                             <option value="">Select...</option>
                         </select>
@@ -112,35 +129,37 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <label for="city" class="form-label">* City, town, or village</label><br>
+                        <label id="required" for="city" class="form-label">City, town, or village</label><br>
                         <input type="text" id="city" name="city" placeholder="Sevilla" required><br>
                     </div>
                     <div class="col-sm-6">
-                        <label for="zipcode" class="form-label">* Zip code</label><br>
-                        <input type="text" id="zipcode" name="zipcode" placeholder="35014" required><br>
+                        <label id="required" for="zipcode" class="form-label">Zip code</label><br>
+                        <input type="text" id="zipcode" pattern="[0-9]+" name="zipcode" placeholder="35014" title="Only numbers are allowed" required><br>
+                        <div id="error-message" class="error-message">Please enter only numbers.</div>
+
                     </div>
                 </div>
 
                 <!-- Address street -->
 
-                <label for="fname">* Address street</label><br>
+                <label id="required" for="fname">Address street</label><br>
                 <input type="text" id="astreet" name="astreet" placeholder="25 Long Road" required><br>
 
                 <!-- Address number -->
 
-                <label for="anumber">* Address number</label><br>
+                <label id="required" for="anumber">Address number</label><br>
                 <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
 
                 <!-- Email -->
             
-                <label for="email">* Email</label><br>
+                <label id="required" for="email">Email</label><br>
                 <input type="text" id="email" name="email" placeholder="xxxxxxxxx@gmail.com" required><br>
 
                 <!-- Telephone number -->
-
-                <label for="tnumber">* Telephone number</label><br>
-                <input type="text" id="tnumber" name="tnumber" placeholder="xxxxxxxxx" required><br>
-
+                <div class="form-group">
+                    <label id="required" for="phone">Telephone number</label><br>
+                    <input type="tel" id="phone" pattern="(\+[0-9]+\s*)|[0-9\s]+" name="phone" placeholder="+34 612 345 678" title="Only numbers and + symbol are allowed" required><br>
+                </div>
                 <!-- Company name -->
 
                 <label for="companyname">Company name</label><br>
@@ -173,7 +192,7 @@
                     </div>
                 </div>
 
-                    <hr class="my-3">
+                <hr class="my-3">
 
                 <!-- Product 2 -->
                     
@@ -188,6 +207,19 @@
                     <div id="ProductPrice" class="item px-2 w-auto">
                         <h6>Price</h6>
                         <p><span class="number-value">132,33 </span> €</p>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+                <h2>Total</h2> <!-- Title left container -->
+
+                <hr class="my-3">
+
+                <!-- Product 1 -->
+
+                <div id="total" class="containerP flex-sm-column flex-lg-row">
+                    <div id="total" class="item">
+                        <h6>Total amount:</h6>
                     </div>
                 </div>
             </div>
@@ -209,19 +241,6 @@
     <script>
         $(document).ready(function() {
             $('#bLeftCol input').addClass('form-control');
-        });
-    </script>
-
-    <!-- JavaScript for the asterix -->
-    <script>
-        $(document).ready(function() {
-            // Create a new asterisk element
-            var asterisk = document.createElement('span');
-            asterisk.innerText = '*'; // Asterisk symbol
-            asterisk.style.color = 'red'; // Red color style
-
-            // Append the asterisk to the '#required' element
-            $('#requiredFn, #requiredLn').append(asterisk);
         });
     </script>
 
@@ -369,9 +388,43 @@
         }
 
     </script>
+
+<script>
+    const zipcodeInput = document.getElementById('zipcode');
+    const errorMessage = document.getElementById('error-message');
+
+    zipcodeInput.addEventListener('blur', function() {
+        if (!this.value) {
+            this.classList.remove('error');
+            errorMessage.style.display = 'none';
+        } else if (!/^[0-9]+$/.test(this.value)) {
+            this.classList.add('error');
+            errorMessage.style.display = 'block';
+        } else {
+            this.classList.remove('error');
+            errorMessage.style.display = 'none';
+        }
+    });
+</script>
+
+<style>
+    .error {
+        border: 2px solid red;
+    }
+
+    .error-message {
+        display: none;
+        color: red;
+        margin-top: -20px;
+        font-size: 14px;
+    }
+</style>
+
+
 </body>
 </html>
 <!-- Faltan líneas en el billing address -->
+<!-- Email que sea válido -->
 <!-- Añadir los euros con JavaScript -->
 <!-- Faltan líneas en el order summary address -->
 <!-- Asterisco rojo cambiar de posición y a todos los necesarios -->
