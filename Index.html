@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Checkout form</title>
     
 </head>
     
@@ -12,21 +12,30 @@
 
 <!-- Logo and main title -->
     
-    <div class="container"> <!-- Includes logo and text related. Padding -->
-        <div class="py-5 text-center"> <!-- Container padding 5 units -->
-            <img class="mb-4 d-block mx-auto" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" with="72" height="72"> <!-- Logo -->
-            <h2>Checkout form</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap</p>
-        </div>
-    </div>
+        <div class="mt-3 text-center">
+            <img class="mx-auto" src="https://github.com/AaronS87/HTML-Project/blob/master/IULogo.png?raw=true" alt="Logo" with="150" height="150"> <!-- Logo --> <br>
+            <label class="line" for=""></label>
 
-<!-- Inline CSS -->
+        </div>
+
+        <style>
+            /* Add CSS styling for the blue line */
+            .line {
+              background: rgb(6, 6, 148);
+              height: 5px;
+              max-width: 65%;
+              margin: 2rem auto;
+              margin-top: -25px;
+              width: 150%;
+            }
+          </style>
+<!-- Internal CSS -->
 
     <!-- h2 properties -->
     <style>
         h2 { color: blue; 
         width: 110%;
-}
+    }
 
     </style>
 
@@ -74,18 +83,19 @@
         }
     </style>
 
-<style>
-    .errorPhone {
-        border: 1px solid red;
-    }
+    <!-- Phone error message -->
+    <style>
+        .errorPhone {
+            border: 1px solid red;
+        }
 
-    .error-message-phone {
-        display: none;
-        color: red;
-        margin-top: -25px;
-        font-size: 14px;
-    }
-</style>
+        .error-message-phone {
+            display: none;
+            color: red;
+            margin-top: -25px;
+            font-size: 14px;
+        }
+    </style>
 
 <!-- Whole container -->
 
@@ -117,7 +127,7 @@
 
                 <!-- Country, region, and province -->
                 
-                <div class="row">
+                <div class="row mb-4">
                     <div class="col-sm-4">
                         <label id="required" for="country" class="form-label">Country</label>
                         <select id="country" class="form-control">
@@ -145,40 +155,49 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label id="required" for="city" class="form-label">City, town, or village</label><br>
-                        <input type="text" id="city" name="city" placeholder="Sevilla" required><br>
+                        <input type="text" id="city" name="city" placeholder="Puerto del Carmen, Tías" required><br>
                     </div>
                     <div class="col-sm-6">
                         <label id="required" for="zipcode" class="form-label">Zip code</label><br>
-                        <input type="text" id="zipcode" pattern="[0-9]+" name="zipcode" placeholder="35014" title="Only numbers are allowed" required><br>
+                        <input type="text" id="zipcode" pattern="[0-9]+" name="zipcode" placeholder="35510" title="Only numbers are allowed" required><br>
                         <div id="error-message" class="error-message">Please enter only numbers.</div>
 
                     </div>
                 </div>
 
-                <!-- Address street -->
 
-                <label id="required" for="fname">Address street</label><br>
-                <input type="text" id="astreet" name="astreet" placeholder="25 Long Road" required><br>
 
-                <!-- Address number -->
+                <!-- Address street and number -->
 
-                <label id="required" for="anumber">Address number</label><br>
-                <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
-
-                <!-- Email -->
-            
-                <label id="required" for="email">Email</label><br>
-                <input type="text" id="email" name="email" placeholder="xxxxxxxxx@gmail.com" required><br>
-
-                <!-- Telephone number -->
-                <div class="form-group">
-                    <label id="required" for="phone">Telephone number</label><br>
-                    <input type="tel" id="phone" pattern="(\+[0-9]+\s*)|[0-9\s]+" name="phone" placeholder="+34 612 345 678" title="Only numbers and + symbol are allowed" required><br>
-                    <div id="error-message-phone" class="error-message-phone">Please enter a valid phone number.</div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label id="required" for="fname">Address street</label><br>
+                        <input type="text" id="astreet" name="astreet" placeholder="Av. de las Playas" required><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <label id="required" for="anumber">Address number</label><br>
+                        <input type="text" id="anumber" name="anumber" placeholder="2B" required><br>
+                    </div>
                 </div>
+
+                <!-- Email and phone number -->
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label id="required" for="email">Email</label><br>
+                        <input type="text" id="email" name="email" placeholder="perenquen@example.com" required><br>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label id="required" for="phone">Telephone number</label><br>
+                        <input type="tel" id="phone" pattern="(\+[0-9]+\s*)|[0-9\s]+" name="phone" placeholder="+34 612 345 678" title="Only numbers and + symbol are allowed" required><br>
+                        <div id="error-message-phone" class="error-message-phone">Please enter a valid phone number.</div>
+                    </div>
+                </div>
+                <hr class="my-3">
+
                 <!-- Company name -->
 
-                <label for="companyname">Company name</label><br>
+                <label for="companyname">Company name or other details</label><br>
                 <input type="text" id="companyname" name="companyname" placeholder="My company"><br>
 
             </div>
@@ -238,13 +257,14 @@
                         <h6>Total amount:</h6>
                     </div>
                 </div>
+                <hr class="my-3">
             </div>
         </div>
 
 <!-- Button container -->
 
-        <div class="container">
-            <button type="button" class="btn btn-primary">Submit</button>
+        <div class="container mt-4 mb-4">
+            <button type="button" class="btn btn-primary">Continue to the payment</button>
         </div>
     
 
