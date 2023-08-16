@@ -60,17 +60,32 @@
         }
     </style>
 
+    <!-- Zipcode error message -->
     <style>
-        #phone {
-        outline: 0;
+        .error {
+            border: 1px solid red;
         }
-        #phone:valid{
-        border-color: green;
-        }
-        #phone:focus:invalid{
-        border-color: red;
+
+        .error-message {
+            display: none;
+            color: red;
+            margin-top: -25px;
+            font-size: 14px;
         }
     </style>
+
+<style>
+    .errorPhone {
+        border: 1px solid red;
+    }
+
+    .error-message-phone {
+        display: none;
+        color: red;
+        margin-top: -25px;
+        font-size: 14px;
+    }
+</style>
 
 <!-- Whole container -->
 
@@ -159,6 +174,7 @@
                 <div class="form-group">
                     <label id="required" for="phone">Telephone number</label><br>
                     <input type="tel" id="phone" pattern="(\+[0-9]+\s*)|[0-9\s]+" name="phone" placeholder="+34 612 345 678" title="Only numbers and + symbol are allowed" required><br>
+                    <div id="error-message-phone" class="error-message-phone">Please enter a valid phone number.</div>
                 </div>
                 <!-- Company name -->
 
@@ -389,36 +405,43 @@
 
     </script>
 
-<script>
-    const zipcodeInput = document.getElementById('zipcode');
-    const errorMessage = document.getElementById('error-message');
+    <!-- JavaScript for wrong zipcode input -->
+    <script>
+        const zipcodeInput = document.getElementById('zipcode');
+        const errorMessage = document.getElementById('error-message');
 
-    zipcodeInput.addEventListener('blur', function() {
-        if (!this.value) {
-            this.classList.remove('error');
-            errorMessage.style.display = 'none';
-        } else if (!/^[0-9]+$/.test(this.value)) {
-            this.classList.add('error');
-            errorMessage.style.display = 'block';
-        } else {
-            this.classList.remove('error');
-            errorMessage.style.display = 'none';
-        }
-    });
-</script>
+        zipcodeInput.addEventListener('blur', function() {
+            if (!this.value) {
+                this.classList.remove('error');
+                errorMessage.style.display = 'none';
+            } else if (!/^[0-9]+$/.test(this.value)) {
+                this.classList.add('error');
+                errorMessage.style.display = 'block';
+            } else {
+                this.classList.remove('error');
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
 
-<style>
-    .error {
-        border: 2px solid red;
-    }
+    <!-- JavaScript for wrong number input -->
+    <script>
+        const phonecodeInput = document.getElementById('phone');
+        const errorMessagePhone = document.getElementById('error-message-phone');
 
-    .error-message {
-        display: none;
-        color: red;
-        margin-top: -20px;
-        font-size: 14px;
-    }
-</style>
+        phonecodeInput.addEventListener('blur', function() {
+            if (!this.value) {
+                this.classList.remove('errorPhone');
+                errorMessagePhone.style.display = 'none';
+            } else if (!/^(\+[0-9]+\s*)|[0-9\s]+$/.test(this.value)) {
+                this.classList.add('errorPhone');
+                errorMessagePhone.style.display = 'block';
+            } else {
+                this.classList.remove('errorPhone');
+                errorMessagePhone.style.display = 'none';
+            }
+        });
+    </script>
 
 
 </body>
