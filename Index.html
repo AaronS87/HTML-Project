@@ -22,20 +22,42 @@
 
 <!-- Inline CSS -->
 
+    <!-- h2 properties -->
     <style>
-        h2 { color: blue; }
+        h2 { color: blue; 
+        width: 110%;
+}
+
     </style>
 
     <style>
-        .container {
+        h6 { border: 1px solid black; 
+    }
+
+    </style>
+
+    <!-- Container products -->
+    <style>
+        .containerP {
             display: flex;
             flex-wrap: wrap;
+            max-width: 100%;
+        }
+
+    </style>
+        <style>
+        .item {
+            flex: 2;
         }
     </style>
 
+
+    
+
+
 <!-- Whole container -->
 
-    <div class="container">
+    <div id="wContainer" class="container"> <!-- Whole container -->
         <div id="bodyCol" class="row justify-content-center" style="border:1px solid black">
 
 <!-- Left container -->
@@ -45,6 +67,8 @@
                 
 
                 <h2>Billing address</h2> <!-- Title left container -->
+
+                <hr class="my-3">
 
                 <!-- First and last name -->
 
@@ -134,35 +158,36 @@
                 <hr class="my-3">
 
                 <!-- Product 1 -->
-     
-                <div id="productCpu" class="container flex-sm-column flex-lg-row">
-                    <div id="imageCpu" class="item col-sm-4">
-                        <img style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/amd-1310766_1280.jpg?raw=true" alt="Logo">
+
+                <div id="productCpu" class="containerP flex-sm-column flex-lg-row">
+                    <div id="productImage" class="item">
+                        <img style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/amd-1310766_1280.jpg?raw=true">
                     </div>
-                    <div id="productName" class="item col-sm-4 px-2">
-                        <h6 style="border:1px solid black">CPU</h6>
+                    <div id="productName" class="item px-2 w-auto">
+                        <h6>CPU</h6>
                         <p>AMD Ryzen 9 7950X3D</p>
                     </div>
-                    <div id="ProductPrice" class="item col-sm-4 px-2">
-                        <h6 style="border:1px solid black">Price</h6>
+                    <div id="ProductPrice" class="item px-2 w-auto">
+                        <h6>Price</h6>
                         <p><span class="number-value">792,33 </span> €</p>
                     </div>
                 </div>
+
                     <hr class="my-3">
 
-                <!-- Product 1 -->
+                <!-- Product 2 -->
                     
-                <div id="productRam" class="row">
-                    <div class="col-sm-4 text-center">
-                        <img class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/memory-4704236_1280.jpg?raw=true" alt="Logo">
+                <div id="productRam" class="containerP flex-sm-column flex-lg-row">
+                    <div id="productImage" class="item">
+                        <img style="border:1px solid black; max-width: 80px; height: auto;" src="https://github.com/AaronS87/HTML-Project/blob/master/memory-4704236_1280.jpg?raw=true">
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Ram</h6>
+                    <div id="productName" class="item px-2 w-auto">
+                        <h6>Ram</h6>
                         <p>Kingston FURY Renegade RGB DDR4 3600 MHz 32GB CL18</p>
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <h6 class="mb-2 d-block mx-auto img-fluid" style="border:1px solid black; max-width: 80px; height: auto;">Price</h6>
-                        <p><span class="number-value">132,33 </span> euros</p>
+                    <div id="ProductPrice" class="item px-2 w-auto">
+                        <h6>Price</h6>
+                        <p><span class="number-value">132,33 </span> €</p>
                     </div>
                 </div>
             </div>
@@ -173,7 +198,7 @@
         <div class="container">
             <button type="button" class="btn btn-primary">Submit</button>
         </div>
-    </div>
+    
 
 <!-- JavaScript -->
 
