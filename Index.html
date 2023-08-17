@@ -12,54 +12,53 @@
 
 <!-- Logo and main title -->
     
-        <div class="mt-3 text-center">
-            <img class="mx-auto" src="https://github.com/AaronS87/HTML-Project/blob/master/IULogo.png?raw=true" alt="Logo" with="150" height="150"> <!-- Logo --> <br>
-            <label class="line" for=""></label>
-        </div>
+    <div class="mt-3 text-center">
+        <img class="mx-auto" src="https://github.com/AaronS87/HTML-Project/blob/master/IULogo.png?raw=true" alt="Logo" with="150" height="150"> <!-- Logo --> <br>
+        <label class="line" for=""></label>
+    </div>
 
-        <style>
-            /* Add CSS styling for the blue line */
-            .line {
-              background: rgb(6, 6, 148);
-              height: 5px;
-              max-width: 65%;
-              margin: 2rem auto;
-              margin-top: -25px;
-              width: 150%;
-            }
-        </style>
 <!-- Internal CSS -->
 
-<style>
+    <!-- Blue line -->
+    <style>
+        .line {
+            background: rgb(6, 6, 148);
+            height: 5px;
+            max-width: 65%;
+            margin: 2rem auto; /* 2rem = 2 times the font size / auto = center horizontally the elements in the container */
+            margin-top: -25px;
+            width: 150%;
+        }
+    </style>
 
-    #bLeftCol {
-        padding-right: 30px; 
-    }
-    #bRightCol {
-        padding-left: 30px; 
-    }
+    <!-- Padding between columns -->
+    <style>
 
+        #bLeftCol {
+            padding-right: 30px; 
+        }
+        #bRightCol {
+            padding-left: 30px; 
+        }
 
+    </style>
 
-
-</style>
     <!-- h2 properties -->
     <style>
-        h2 { color: blue; 
+        h2 { color: rgb(49, 49, 216); 
         width: 110%;
     }
 
     </style>
 
     <!-- h6 properties -->
-
     <style>
         h6 { border-bottom: 1px solid black; 
     }
 
     </style>
 
-    <!-- Container products -->
+    <!-- Container products properties -->
     <style>
         .containerP {
             display: flex;
@@ -68,17 +67,26 @@
         }
     </style>
 
+    <!-- Basket items properties -->
     <style>
         .item {
             flex: 2;
         }
     </style>
 
+    <!-- Asterix property -->
     <style>
         #required::before {
         content: "* ";
         color: red; /* You can adjust the color as needed */
         }
+    </style>
+
+    <!-- Buttons properties -->
+    <style>
+        .btn{
+            background-color: rgb(89, 89, 241);
+        } 
     </style>
 
     <!-- Zipcode error message -->
@@ -108,6 +116,22 @@
             font-size: 14px;
         }
     </style>
+
+    <!-- Email error message -->
+    <style>
+        .errorEmail {
+            border: 1px solid red;
+        }
+
+        .error-message-email {
+            display: none;
+            color: red;
+            margin-top: -25px;
+            font-size: 14px;
+        }
+    </style>
+
+
 
 <!-- Whole container -->
 
@@ -172,12 +196,9 @@
                     <div class="col-sm-6">
                         <label id="required" for="zipcode" class="form-label">Zip code</label><br>
                         <input type="text" id="zipcode" pattern="[0-9]+" name="zipcode" placeholder="35510" title="Only numbers are allowed" required><br>
-                        <div id="error-message" class="error-message">Please enter only numbers.</div>
-
+                        <div id="error-message" class="error-message">Please enter a valid zipcode.</div>
                     </div>
                 </div>
-
-
 
                 <!-- Address street and number -->
 
@@ -198,6 +219,7 @@
                     <div class="col-sm-6">
                         <label id="required" for="email">Email</label><br>
                         <input type="text" id="email" name="email" placeholder="perenquen@example.com" required><br>
+                        <div id="error-message-email" class="error-message-email">Please enter a valid email address.</div>
                     </div>
                     <div class="form-group col-sm-6">
                         <label id="required" for="phone">Telephone number</label><br>
@@ -272,34 +294,33 @@
                         <h3><p id="totalAmount"></p></h3>
                     </div>
                 </div>
+
+                <!-- Button continue shopping -->
                 <div class="container mt-4 mb-4">
-                    <button type="button" class="btn btn-primary">Continue shopping</button>
+                    <button id="buttonContinueShopping" type="button" class="btn btn-primary">Continue shopping</button>
                 </div>
-
-
             </div>
         </div>
 
-<!-- Button container -->
+<!-- Button payment -->
 
         <div class="container mt-4 mb-4">
-            <button type="button" class="btn btn-primary">Continue to the payment</button>
+            <button id="buttonPayment" type="button" class="btn btn-primary">Continue to the payment</button>
         </div>
-    
 
 <!-- JavaScript -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- JavaScript form for left column -->
+    <!-- JS form for left column -->
     <script>
         $(document).ready(function() {
             $('#bLeftCol input').addClass('form-control');
         });
     </script>
 
-    <!-- JavaScript for the country, region, and province -->
+    <!-- JS for the country, region, and province -->
     <script>
         let countries = ["Bulgaria", "Spain"];
 
@@ -444,7 +465,7 @@
 
     </script>
 
-    <!-- JavaScript for wrong zipcode input -->
+    <!-- JS for wrong zipcode input -->
     <script>
         const zipcodeInput = document.getElementById('zipcode');
         const errorMessage = document.getElementById('error-message');
@@ -463,7 +484,7 @@
         });
     </script>
 
-    <!-- JavaScript for wrong number input -->
+    <!-- JS for wrong number input -->
     <script>
         const phonecodeInput = document.getElementById('phone');
         const errorMessagePhone = document.getElementById('error-message-phone');
@@ -482,25 +503,130 @@
         });
     </script>
 
-<script>
-    const price1 = parseFloat(document.querySelector('.value1').textContent);
-    const quantity1 = parseFloat(document.querySelector('.quantity1').textContent);
-    const totalProduct1 = price1 * quantity1;
+    <!-- JS for wrong email input -->
+    <script>
+        const emailInput = document.getElementById('email');
+        const emailErrorMessage = document.getElementById('error-message-email');
 
-    const price2 = parseFloat(document.querySelector('.value2').textContent);
-    const quantity2 = parseFloat(document.querySelector('.quantity2').textContent);
-    const totalProduct2 = price2 * quantity2;
+        emailInput.addEventListener('blur', function() {
+            if (!this.value) {
+                this.classList.remove('error');
+                emailErrorMessage.style.display = 'none';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)) {
+                this.classList.add('error');
+                emailErrorMessage.style.display = 'block';
+            } else {
+                this.classList.remove('error');
+                emailErrorMessage.style.display = 'none';
+            }
+        });
+    </script>
 
-    const totalCost = totalProduct1 + totalProduct2;
+    <!-- JS for basket calculation -->
+    <script>
+        const price1 = parseFloat(document.querySelector('.value1').textContent);
+        const quantity1 = parseFloat(document.querySelector('.quantity1').textContent);
+        const totalProduct1 = price1 * quantity1;
 
-    const totalAmountElement = document.getElementById('totalAmount');
-    totalAmountElement.innerHTML = `<span>${totalCost.toFixed(2)} </span> €`;
-</script>
+        const price2 = parseFloat(document.querySelector('.value2').textContent);
+        const quantity2 = parseFloat(document.querySelector('.quantity2').textContent);
+        const totalProduct2 = price2 * quantity2;
+
+        const totalCost = totalProduct1 + totalProduct2;
+
+        const totalAmountElement = document.getElementById('totalAmount');
+        totalAmountElement.innerHTML = `<span>${totalCost.toFixed(2)} </span> €`;
+    </script>
+
+    <!-- JS for continue shopping button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var continueShoppingButton = document.getElementById("buttonContinueShopping");
+            
+            continueShoppingButton.addEventListener("click", function() {
+                alert("This is a test site. You have to buy both components.");
+            });
+        });
+    </script>
+
+    <!-- JS payment button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttonPayment = document.getElementById('buttonPayment');
+            const errorMessage = document.getElementById('error-message');
+            const errorMessagePhone = document.getElementById('error-message-phone');
+            const errorMessageEmail = document.getElementById('error-message-email');
+
+            buttonPayment.addEventListener('click', function() {
+                const mandatoryFields = [
+                    'fname', 'lname', 'country', 'region', 'province', 'city', 'zipcode',
+                    'astreet', 'anumber', 'email', 'phone'
+                ];
+
+                let allFieldsCompleted = true;
+                let phoneValid = true;
+                let zipcodeValid = true;
+                let emailValid = true;
+
+                for (const field of mandatoryFields) {
+                    const inputField = document.getElementById(field);
+                    if (!inputField.value.trim()) {
+                        inputField.classList.add('error');
+                        allFieldsCompleted = false;
+                    } else {
+                        inputField.classList.remove('error');
+                    }
+                }
+
+                const emailInput = document.getElementById('email');
+                if (!emailInput.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)){
+                    emailInput.classList.add('errorEmail');
+                    errorMessageEmail.style.display = 'block';
+                    allFieldsCompleted = false;
+                    emailValid = false;
+                } else {
+                    emailInput.classList.remove('errorEmail');
+                    errorMessageEmail.style.display = 'none';
+                }
+
+                const zipcodeInput = document.getElementById('zipcode');
+                if (!zipcodeInput.value.match(/^[0-9]+$/)) {
+                    zipcodeInput.classList.add('error');
+                    errorMessage.style.display = 'block';
+                    allFieldsCompleted = false;
+                    zipcodeValid = false;
+                } else {
+                    zipcodeInput.classList.remove('error');
+                    errorMessage.style.display = 'none';
+                }
+
+                const phonecodeInput = document.getElementById('phone');
+                if (!phonecodeInput.value.match(/^(\+[0-9]+\s*)|[0-9\s]+$/)) {
+                    phonecodeInput.classList.add('errorPhone');
+                    errorMessagePhone.style.display = 'block';
+                    allFieldsCompleted = false;
+                    phoneValid = false;
+                } else {
+                    phonecodeInput.classList.remove('errorPhone');
+                    errorMessagePhone.style.display = 'none';
+                }
+
+                if (allFieldsCompleted) {
+                    alert("Thank you for trying to buy with us");
+                } else {
+                    if (!phoneValid || !zipcodeValid || !emailValid) {
+                        alert("You have to complete all the mandatory fields or they have some mistakes.");
+                    } else {
+                        alert("You have to complete all the mandatory fields.");
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
 
-<!-- Email que sea válido -->
 <!-- Añadir los euros con JavaScript -->
 <!-- Añadir código descuento -->
 <!-- Problema separación entre nombre y caja -->
