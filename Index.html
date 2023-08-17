@@ -306,14 +306,14 @@
 
     <!-- JS form for left column -->
     <script>
-        $(document).ready(function() {
-            $('#bLeftCol input').addClass('form-control');
+        $(document).ready(function() { /* Gets the document "ready" in order to manipulate safely the page */
+            $('#bLeftCol input').addClass('form-control'); /* Selects all "inputs" dependent on the ID "bLeftCol" and adds a class "form-control" */
         });
     </script>
 
     <!-- JS for the country, region, and province -->
     <script>
-        let countries = ["Bulgaria", "Spain"];
+        let countries = ["Bulgaria", "Spain"]; /* "let" used to declare a variable + name*/
 
         let Spain = ["Andalucía", "Aragón", "Asturias", "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Comunidad de Madrid", "Comunidad Valenciana", "Extremadura", "Galicia", "Islas Baleares", "Islas Canarias", "La Rioja", "Navarra", "País Vasco", "Región de Murcia"];
 
@@ -342,9 +342,11 @@
         let SoutheastRegion = ["Бургас", "Сливен", "Стара Загора", "Ямбол"];
         let SouthwestRegion = ["Благоевград", "Кюстендил", "Перник", "София (столица)", "София"];
 
-        let country = document.getElementById("country");
+        let country = document.getElementById("country"); /* "country" variable will hold a reference to the ID "country" */
         let region = document.getElementById("region");
         let province = document.getElementById("province");
+
+/* CONTINUE HERE*/
 
         countries.forEach(function addcountries(item){
             let option = document.createElement("option");
