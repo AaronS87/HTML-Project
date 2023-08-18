@@ -132,7 +132,7 @@
 
 <!-- Whole container -->
 
-    <div id="wContainer" class="container"> <!-- Whole container -->
+    <div id="wContainer" class="container">
         <div id="bodyCol" class="row justify-content-center">
 
 <!-- Left container -->
@@ -247,9 +247,9 @@
                     </div>
                     <div id="ProductPrice" class="item px-2 w-auto">
                         <h6>Price</h6>
-                        <p><span class="value1">792.33 </span> €</p>
+                        <p><span class="value1">792.33</span> €</p>
                         <h6>Quantity</h6>
-                        <p><span class="quantity1">1 </span> </p>
+                        <p><span class="quantity1">1</span> </p>
                     </div>
                 </div>
 
@@ -266,9 +266,9 @@
                     </div>
                     <div id="ProductPrice" class="item px-2 w-auto">
                         <h6>Price</h6>
-                        <p><span class="value2">132.33 </span> €</p>
+                        <p><span class="value2">132.33</span> €</p>
                         <h6>Quantity</h6>
-                        <p><span class="quantity2">2 </span> </p>
+                        <p><span class="quantity2">2</span> </p>
                     </div>
                 </div>
 
@@ -299,14 +299,14 @@
             <button id="buttonPayment" type="button" class="btn btn-primary">Continue to the payment</button>
     </div>
 
-<!-- JavaScript -->  <!-- CORRECTED UNTIL HERE -->  
+<!-- JavaScript -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- JS form for left column -->
     <script>
-        $(document).ready(function() { /* Gets the document "ready" in order to manipulate safely the page */
+        $(document).ready(function() { /* jQuery. Gets the document "ready" in order to manipulate safely the page */
             $('#bLeftCol input').addClass('form-control'); /* Selects all "inputs" dependent on the ID "bLeftCol" and adds a class "form-control" */
         });
     </script>
@@ -346,17 +346,15 @@
         let region = document.getElementById("region");
         let province = document.getElementById("province");
 
-/* CONTINUE HERE*/
-
-        countries.forEach(function addcountries(item){
-            let option = document.createElement("option");
-            option.text = item;
-            option.value = item;
-            country.appendChild(option);
+        countries.forEach(function addcountries(item){ /* "forEach" iterate through the array "countries" provide a name to the function "addcountries" and name a variable "item" */
+            let option = document.createElement("option"); /* Creates an element "option" */
+            option.text = item; /* Set the visible text of the "option" passed to "item" */
+            option.value = item; /* Set the value of the "option" passed to "item" */
+            country.appendChild(option); /* Adds the "option" element to the list of selectable options */
         });
 
-        country.onchange = function(){
-            region.innerHTML = "<option></option>";
+        country.onchange = function(){ /* "onchange" makes the action depends on the selection */
+            region.innerHTML = "<option></option>"; /* "innerHTML" replace the existing content from "option" to the selected country in order the region be later displayed */
             if(this.value == "Bulgaria"){
                 addToRegion(Bulgaria);
             }
@@ -439,7 +437,7 @@
         }
 
         function addToRegion(arr){
-            arr.forEach(function (item){
+            arr.forEach(function (item){ /* This makes same as before but to the "province" */
                 let option = document.createElement("option");
                 option.text = item;
                 option.value = item;
@@ -458,19 +456,19 @@
 
     </script>
 
-    <!-- JS for wrong zipcode input -->
+    <!-- JS for wrong zipcode input --> 
     <script>
-        const zipcodeInput = document.getElementById('zipcode');
+        const zipcodeInput = document.getElementById('zipcode'); /* "const" stands for constant, like the math uses */
         const errorMessage = document.getElementById('error-message');
 
-        zipcodeInput.addEventListener('blur', function() {
-            if (!this.value) {
+        zipcodeInput.addEventListener('blur', function() { /* The "addEventListener" listen the "blur" event when the event loses focus (mouse click outside from the input field) */
+            if (!this.value) { /* If "empty" the field, no error message displayed */
                 this.classList.remove('error');
                 errorMessage.style.display = 'none';
-            } else if (!/^[0-9]+$/.test(this.value)) {
+            } else if (!/^[0-9]+$/.test(this.value)) { /* if content does not fits the correct values, error message prompts */
                 this.classList.add('error');
                 errorMessage.style.display = 'block';
-            } else {
+            } else { /* if the "else if" meets again the correct values or empty, removes the error message */
                 this.classList.remove('error');
                 errorMessage.style.display = 'none';
             }
@@ -517,34 +515,34 @@
 
     <!-- JS for basket calculation -->
     <script>
-        const price1 = parseFloat(document.querySelector('.value1').textContent);
-        const quantity1 = parseFloat(document.querySelector('.quantity1').textContent);
-        const totalProduct1 = price1 * quantity1;
-
-        const price2 = parseFloat(document.querySelector('.value2').textContent);
-        const quantity2 = parseFloat(document.querySelector('.quantity2').textContent);
-        const totalProduct2 = price2 * quantity2;
-
-        const totalCost = totalProduct1 + totalProduct2;
-
-        const totalAmountElement = document.getElementById('totalAmount');
-        totalAmountElement.innerHTML = `<span>${totalCost.toFixed(2)} </span> €`;
+        let price1 = document.querySelector('.value1').textContent; /* Add to "price1" the value "value1" */
+        let quantity1 = document.querySelector('.quantity1').textContent;
+        let totalProduct1 = price1 * quantity1;
+    
+        let price2 = document.querySelector('.value2').textContent;
+        let quantity2 = document.querySelector('.quantity2').textContent;
+        let totalProduct2 = price2 * quantity2;
+    
+        let totalCost = totalProduct1 + totalProduct2;
+    
+        let totalAmountElement = document.getElementById('totalAmount');
+        totalAmountElement.innerHTML = `<span>${totalCost.toFixed(2)} €</span>`;
     </script>
 
     <!-- JS for continue shopping button -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() { /* "DOM (Document Object Model) ContentLoaded" is used to perform actions when the DOM has finished loading and is ready */
             var continueShoppingButton = document.getElementById("buttonContinueShopping");
             
-            continueShoppingButton.addEventListener("click", function() {
-                alert("This is a test site. You have to buy both components.");
+            continueShoppingButton.addEventListener("click", function() { /* "click" when the mouse clicks the button */
+                alert("This is a test site. You have to buy both components."); /* "alert" displays the message */
             });
         });
     </script>
 
     <!-- JS payment button -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() { /* Add all error messages in case the fields are not filled in or filled out incorrectly */
             const buttonPayment = document.getElementById('buttonPayment');
             const errorMessage = document.getElementById('error-message');
             const errorMessagePhone = document.getElementById('error-message-phone');
@@ -561,7 +559,9 @@
                 let zipcodeValid = true;
                 let emailValid = true;
 
-                for (const field of mandatoryFields) {
+                    /* Main instruction for the input fields */
+
+                for (const field of mandatoryFields) { 
                     const inputField = document.getElementById(field);
                     if (!inputField.value.trim()) {
                         inputField.classList.add('error');
@@ -570,6 +570,8 @@
                         inputField.classList.remove('error');
                     }
                 }
+
+                    /* All errors */
 
                 const emailInput = document.getElementById('email');
                 if (!emailInput.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)){
@@ -604,12 +606,14 @@
                     errorMessagePhone.style.display = 'none';
                 }
 
-                if (allFieldsCompleted) {
+                    /* Check final inputs */
+
+                if (allFieldsCompleted) { /* If everything is correctly completed. No errors */
                     alert("Thank you for trying to buy with us");
                 } else {
-                    if (!phoneValid || !zipcodeValid || !emailValid) {
+                    if (!phoneValid || !zipcodeValid || !emailValid) { /* Check if there are errors in the inputs */
                         alert("You have to complete all the mandatory fields or they have some mistakes.");
-                    } else {
+                    } else { /* Check if missing inputs needs to be filled in */
                         alert("You have to complete all the mandatory fields.");
                     }
                 }
